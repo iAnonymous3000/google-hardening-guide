@@ -2,6 +2,10 @@
 
 **Keeping your Google account secure is critical in today's world of online accounts and identities. This guide provides actionable recommendations on improving your Google account's security posture through steps like using strong passwords, enabling two-factor authentication, limiting account access, and more.**
 
+## Why is Google Account Security Important?
+
+Your Google account holds a wealth of personal data. A compromised account can lead to identity theft, financial loss, account takeovers, data theft, and even damage to your reputation. Taking proactive measures minimizes these risks and ensures your online safety.
+
 ## Contents
 
 - [Use a Strong Password](#use-a-strong-password)
@@ -30,10 +34,11 @@
 - Use 2SV for account logins on new devices
 - Do not use SMS 2FA for accounts with sensitive information
 - Print and store backup verification codes
+- Consider app-based authentication options like Google Prompt or authenticator apps
 
 ### Security Keys
 
-- Use hardware keys (e.g., YubiKey, Google Titan) for robust 2FA, offering better protection against phishing compared to other 2FA methods.
+- Use hardware keys (e.g., YubiKey, Google Titan) for robust 2FA, offering better protection against phishing than other 2FA methods.
 
 [🔝 Back to Top](#securing-your-google-account)
 
@@ -42,14 +47,9 @@
 [Identifying and Avoiding Phishing](https://support.google.com/mail/answer/8253?hl=en)
 
 - Closely inspect sender addresses and URLs.
+- Hover over links before clicking to verify legitimacy.
 - Employ VPN over public Wi-Fi.
 - Forward suspicious emails to Google's phishing team.
-
-### Protective Measures:
-
-- Inspect sender address and URLs closely
-- Use VPN over public Wi-Fi
-- Forward phishing emails to Google at phish@google.com
 
 [🔝 Back to Top](#securing-your-google-account)
 
@@ -79,6 +79,7 @@
 
 - Review third-party app permissions regularly
 - Revoke access for any unknown/unused sessions
+- Be cautious when granting account access permissions to new apps/services. Review requested permissions carefully.
 - Use Incognito Mode on public devices
 - Never save login credentials on shared devices
 
@@ -108,6 +109,8 @@
 [Recovering Access to Your Account](https://support.google.com/accounts/answer/7682439)
 
 - Use backup verification codes
+- Print out backup codes as an extra precaution
+- Store backup codes somewhere secure like a password manager or encrypted cloud
 - Complete the account recovery form accurately.
 - Contact Google Support for additional assistance.
 
@@ -119,6 +122,7 @@
 - Requires the use of physical security keys for authentication.
 - Implements stricter account recovery processes to prevent unauthorized access.
 - Limits third-party app access to Gmail and Drive to protect sensitive data.
+- Note that GAPP restricts access to some Google services, evaluate if this tradeoff is appropriate.
 - Offers the strongest defense against phishing and account hijacking.
 
 ### How to Enroll:
