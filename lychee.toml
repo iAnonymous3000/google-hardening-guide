@@ -1,0 +1,18 @@
+# Link checker settings used by .github/workflows/checks.yml
+
+max_redirects = 10
+max_retries = 3
+timeout = 30
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36"
+
+# Google account pages redirect to sign-in, and some carrier and news sites
+# block automated clients, so treat rate limits and bot blocks as reachable.
+accept = ["200..=299", "403", "429"]
+
+# gemini.google.com breaks some HTTP/2 clients even though the pages load fine.
+exclude = [
+  '^chrome://',
+  '^https://gemini\.google\.com/',
+  '^https://x\.com/',
+  '^https://github\.com/iAnonymous3000/google-hardening-guide/issues/new',
+]

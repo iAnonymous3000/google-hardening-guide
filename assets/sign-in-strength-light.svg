@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="664" viewBox="0 0 1000 664" role="img" aria-labelledby="t d">
+<title id="t">Phishing resistance by sign-in method</title>
+<desc id="d">Sign-in methods ranked strongest to weakest. 1. Hardware security key (Phishing-resistant): Phishing-proof. The secret never leaves the key. 2. Passkey (Phishing-resistant): Phishing-proof. Synced end-to-end encrypted. 3. Google prompt (Phishable): Shows where a sign-in comes from, but relayable. 4. Authenticator app code (Phishable): Immune to SIM swaps. Relayed by phishing kits. 5. Text or voice code (Weak): Hit by SIM swaps and relayed by phishing kits. 6. Password alone (Weak): Phished, leaked and reused. Never enough.</desc>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }</style>
+<rect x="0.5" y="0.5" width="999" height="663" rx="16" fill="#f6f8fa" stroke="#d1d9e0"/>
+<text x="32" y="54" font-size="27" font-weight="700" fill="#1f2328" text-anchor="start">Phishing resistance by sign-in method</text>
+<text x="32" y="84" font-size="16" font-weight="400" fill="#59636e" text-anchor="start">How each method holds up against phishing kits, SIM swaps and malware.</text>
+<rect x="32" y="108" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="143.0" r="16" fill="#dafbe1"/>
+<text x="66" y="148.5" font-size="15" font-weight="700" fill="#1a7f37" text-anchor="middle">1</text>
+<text x="96" y="138" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Hardware security key</text>
+<text x="96" y="161" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Phishing-proof. The secret never leaves the key.</text>
+<rect x="548" y="135" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="135" width="220" height="16" rx="8" fill="#1a7f37"/>
+<rect x="784" y="128" width="166" height="30" rx="15" fill="#dafbe1"/>
+<text x="867.0" y="148" font-size="13" font-weight="700" fill="#1a7f37" text-anchor="middle">Phishing-resistant</text>
+<rect x="32" y="188" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="223.0" r="16" fill="#dafbe1"/>
+<text x="66" y="228.5" font-size="15" font-weight="700" fill="#1a7f37" text-anchor="middle">2</text>
+<text x="96" y="218" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Passkey</text>
+<text x="96" y="241" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Phishing-proof. Synced end-to-end encrypted.</text>
+<rect x="548" y="215" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="215" width="198" height="16" rx="8" fill="#1a7f37"/>
+<rect x="784" y="208" width="166" height="30" rx="15" fill="#dafbe1"/>
+<text x="867.0" y="228" font-size="13" font-weight="700" fill="#1a7f37" text-anchor="middle">Phishing-resistant</text>
+<line x1="32" y1="282" x2="968" y2="282" stroke="#cf222e" stroke-width="1.5" stroke-dasharray="6 6"/>
+<rect x="267.0" y="269" width="466" height="26" rx="13" fill="#f6f8fa"/>
+<text x="500" y="286.5" font-size="13" font-weight="700" fill="#cf222e" text-anchor="middle">Everything below this line can be relayed by a fake website</text>
+<rect x="32" y="298" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="333.0" r="16" fill="#fff8c5"/>
+<text x="66" y="338.5" font-size="15" font-weight="700" fill="#9a6700" text-anchor="middle">3</text>
+<text x="96" y="328" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Google prompt</text>
+<text x="96" y="351" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Shows where a sign-in comes from, but relayable.</text>
+<rect x="548" y="325" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="325" width="121" height="16" rx="8" fill="#9a6700"/>
+<rect x="784" y="318" width="166" height="30" rx="15" fill="#fff8c5"/>
+<text x="867.0" y="338" font-size="13" font-weight="700" fill="#9a6700" text-anchor="middle">Phishable</text>
+<rect x="32" y="378" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="413.0" r="16" fill="#fff8c5"/>
+<text x="66" y="418.5" font-size="15" font-weight="700" fill="#9a6700" text-anchor="middle">4</text>
+<text x="96" y="408" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Authenticator app code</text>
+<text x="96" y="431" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Immune to SIM swaps. Relayed by phishing kits.</text>
+<rect x="548" y="405" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="405" width="99" height="16" rx="8" fill="#9a6700"/>
+<rect x="784" y="398" width="166" height="30" rx="15" fill="#fff8c5"/>
+<text x="867.0" y="418" font-size="13" font-weight="700" fill="#9a6700" text-anchor="middle">Phishable</text>
+<rect x="32" y="458" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="493.0" r="16" fill="#ffebe9"/>
+<text x="66" y="498.5" font-size="15" font-weight="700" fill="#cf222e" text-anchor="middle">5</text>
+<text x="96" y="488" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Text or voice code</text>
+<text x="96" y="511" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Hit by SIM swaps and relayed by phishing kits.</text>
+<rect x="548" y="485" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="485" width="48" height="16" rx="8" fill="#cf222e"/>
+<rect x="784" y="478" width="166" height="30" rx="15" fill="#ffebe9"/>
+<text x="867.0" y="498" font-size="13" font-weight="700" fill="#cf222e" text-anchor="middle">Weak</text>
+<rect x="32" y="538" width="936" height="70" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<circle cx="66" cy="573.0" r="16" fill="#ffebe9"/>
+<text x="66" y="578.5" font-size="15" font-weight="700" fill="#cf222e" text-anchor="middle">6</text>
+<text x="96" y="568" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Password alone</text>
+<text x="96" y="591" font-size="14.5" font-weight="400" fill="#59636e" text-anchor="start">Phished, leaked and reused. Never enough.</text>
+<rect x="548" y="565" width="220" height="16" rx="8" fill="#e6eaef"/>
+<rect x="548" y="565" width="22" height="16" rx="8" fill="#cf222e"/>
+<rect x="784" y="558" width="166" height="30" rx="15" fill="#ffebe9"/>
+<text x="867.0" y="578" font-size="13" font-weight="700" fill="#cf222e" text-anchor="middle">Weak</text>
+<text x="500" y="644" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle">Your account is only as strong as the weakest method it still accepts.</text>
+</svg>

@@ -1,0 +1,48 @@
+name: Outdated or wrong
+description: A setting moved, a link broke, or a claim is no longer true.
+title: "[Update]: "
+labels: ["outdated"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for keeping the guide accurate. Please do not include email addresses, phone numbers, codes or screenshots that show personal details.
+  - type: input
+    id: section
+    attributes:
+      label: Section
+      description: The heading or a link to the part of the guide.
+      placeholder: "4. Gmail > Audit the settings attackers change"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What changed
+      description: What the guide says, and what you see now.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to Google's documentation or another reliable source.
+      placeholder: "https://support.google.com/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Where you saw it
+      multiple: true
+      options:
+        - Web
+        - Android
+        - iPhone or iPad
+        - Chrome on desktop
+        - Not platform specific
+  - type: input
+    id: region
+    attributes:
+      label: Country or region
+      description: Optional. Some Google features differ by region.

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="584" viewBox="0 0 1000 584" role="img" aria-labelledby="t d">
+<title id="t">Three levels of hardening</title>
+<desc id="d">Baseline (Everyone. About 20 minutes, free.): Passkeys on every device, 2-Step Verification on, Backup codes offline, Recovery info and contacts, Devices and apps reviewed, Gmail forwarding checked, Carrier SIM lock on. Enhanced (Money, crypto, a business, an audience or admin access.): Two hardware security keys, No text message codes, Saved passwords encrypted, Recovery email hardened, Calendar invite filter on, Third-party cookies off, 3-month auto-delete. Maximum (Journalists, activists, executives, anyone targeted.): Advanced Protection on, Phone lockdown mode on, No apps with mail access, Separate accounts per role, Dedicated admin device, Gemini unlinked from apps, Backup key stored off-site.</desc>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }</style>
+<rect x="0.5" y="0.5" width="999" height="583" rx="16" fill="#151b23" stroke="#3d444d"/>
+<text x="32" y="54" font-size="27" font-weight="700" fill="#f0f6fc" text-anchor="start">Three levels of hardening</text>
+<text x="32" y="84" font-size="16" font-weight="400" fill="#9198a1" text-anchor="start">Each level includes everything before it. Go as far as your risk requires.</text>
+<rect x="32" y="108" width="302" height="446" rx="12" fill="#0d1117" stroke="#3d444d"/>
+<path d="M44 108.5 H322 A11.5 11.5 0 0 1 333.5 120 V114 H32.5 V120 A11.5 11.5 0 0 1 44 108.5 Z" fill="#3fb950"/>
+<text x="56" y="150" font-size="12" font-weight="700" fill="#3fb950" text-anchor="start" letter-spacing="1.5">LEVEL 1</text>
+<text x="56" y="184" font-size="27" font-weight="700" fill="#f0f6fc" text-anchor="start">Baseline</text>
+<text x="56" y="212" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Everyone.</text>
+<text x="56" y="232" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">About 20 minutes, free.</text>
+<line x1="56" y1="250" x2="310" y2="250" stroke="#3d444d"/>
+<circle cx="66" cy="281" r="10" fill="#12261e"/><path d="M61.5 281.5 L64.8 284.8 L70.8 277.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="286" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Passkeys on every device</text>
+<circle cx="66" cy="321" r="10" fill="#12261e"/><path d="M61.5 321.5 L64.8 324.8 L70.8 317.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="326" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">2-Step Verification on</text>
+<circle cx="66" cy="361" r="10" fill="#12261e"/><path d="M61.5 361.5 L64.8 364.8 L70.8 357.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="366" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Backup codes offline</text>
+<circle cx="66" cy="401" r="10" fill="#12261e"/><path d="M61.5 401.5 L64.8 404.8 L70.8 397.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="406" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Recovery info and contacts</text>
+<circle cx="66" cy="441" r="10" fill="#12261e"/><path d="M61.5 441.5 L64.8 444.8 L70.8 437.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="446" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Devices and apps reviewed</text>
+<circle cx="66" cy="481" r="10" fill="#12261e"/><path d="M61.5 481.5 L64.8 484.8 L70.8 477.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="486" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Gmail forwarding checked</text>
+<circle cx="66" cy="521" r="10" fill="#12261e"/><path d="M61.5 521.5 L64.8 524.8 L70.8 517.8" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="526" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Carrier SIM lock on</text>
+<rect x="349" y="108" width="302" height="446" rx="12" fill="#0d1117" stroke="#3d444d"/>
+<path d="M361 108.5 H639 A11.5 11.5 0 0 1 650.5 120 V114 H349.5 V120 A11.5 11.5 0 0 1 361 108.5 Z" fill="#d29922"/>
+<text x="373" y="150" font-size="12" font-weight="700" fill="#d29922" text-anchor="start" letter-spacing="1.5">LEVEL 2</text>
+<text x="373" y="184" font-size="27" font-weight="700" fill="#f0f6fc" text-anchor="start">Enhanced</text>
+<text x="373" y="212" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Money, crypto, a business,</text>
+<text x="373" y="232" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">an audience or admin access.</text>
+<line x1="373" y1="250" x2="627" y2="250" stroke="#3d444d"/>
+<circle cx="383" cy="281" r="10" fill="#2b2111"/><path d="M378.5 281.5 L381.8 284.8 L387.8 277.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="286" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Two hardware security keys</text>
+<circle cx="383" cy="321" r="10" fill="#2b2111"/><path d="M378.5 321.5 L381.8 324.8 L387.8 317.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="326" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">No text message codes</text>
+<circle cx="383" cy="361" r="10" fill="#2b2111"/><path d="M378.5 361.5 L381.8 364.8 L387.8 357.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="366" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Saved passwords encrypted</text>
+<circle cx="383" cy="401" r="10" fill="#2b2111"/><path d="M378.5 401.5 L381.8 404.8 L387.8 397.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="406" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Recovery email hardened</text>
+<circle cx="383" cy="441" r="10" fill="#2b2111"/><path d="M378.5 441.5 L381.8 444.8 L387.8 437.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="446" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Calendar invite filter on</text>
+<circle cx="383" cy="481" r="10" fill="#2b2111"/><path d="M378.5 481.5 L381.8 484.8 L387.8 477.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="486" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Third-party cookies off</text>
+<circle cx="383" cy="521" r="10" fill="#2b2111"/><path d="M378.5 521.5 L381.8 524.8 L387.8 517.8" fill="none" stroke="#d29922" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="403" y="526" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">3-month auto-delete</text>
+<rect x="666" y="108" width="302" height="446" rx="12" fill="#0d1117" stroke="#3d444d"/>
+<path d="M678 108.5 H956 A11.5 11.5 0 0 1 967.5 120 V114 H666.5 V120 A11.5 11.5 0 0 1 678 108.5 Z" fill="#f85149"/>
+<text x="690" y="150" font-size="12" font-weight="700" fill="#f85149" text-anchor="start" letter-spacing="1.5">LEVEL 3</text>
+<text x="690" y="184" font-size="27" font-weight="700" fill="#f0f6fc" text-anchor="start">Maximum</text>
+<text x="690" y="212" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Journalists, activists,</text>
+<text x="690" y="232" font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">executives, anyone targeted.</text>
+<line x1="690" y1="250" x2="944" y2="250" stroke="#3d444d"/>
+<circle cx="700" cy="281" r="10" fill="#301517"/><path d="M695.5 281.5 L698.8 284.8 L704.8 277.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="286" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Advanced Protection on</text>
+<circle cx="700" cy="321" r="10" fill="#301517"/><path d="M695.5 321.5 L698.8 324.8 L704.8 317.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="326" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Phone lockdown mode on</text>
+<circle cx="700" cy="361" r="10" fill="#301517"/><path d="M695.5 361.5 L698.8 364.8 L704.8 357.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="366" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">No apps with mail access</text>
+<circle cx="700" cy="401" r="10" fill="#301517"/><path d="M695.5 401.5 L698.8 404.8 L704.8 397.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="406" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Separate accounts per role</text>
+<circle cx="700" cy="441" r="10" fill="#301517"/><path d="M695.5 441.5 L698.8 444.8 L704.8 437.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="446" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Dedicated admin device</text>
+<circle cx="700" cy="481" r="10" fill="#301517"/><path d="M695.5 481.5 L698.8 484.8 L704.8 477.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="486" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Gemini unlinked from apps</text>
+<circle cx="700" cy="521" r="10" fill="#301517"/><path d="M695.5 521.5 L698.8 524.8 L704.8 517.8" fill="none" stroke="#f85149" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="526" font-size="15.5" font-weight="400" fill="#f0f6fc" text-anchor="start">Backup key stored off-site</text>
+</svg>

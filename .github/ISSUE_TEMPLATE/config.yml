@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Locked out of your Google account?
+    url: https://g.co/recover
+    about: The maintainers cannot recover accounts. Use Google's official recovery flow, and ignore anyone who offers to do it for you.
+  - name: Found a security bug in a Google product?
+    url: https://bughunters.google.com/
+    about: Report vulnerabilities to Google's Vulnerability Reward Program, not here.

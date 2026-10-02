@@ -1,0 +1,34 @@
+name: Suggest an addition
+description: A setting, threat or tip the guide should cover.
+title: "[Suggestion]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What should the guide cover?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: Which attack or risk does it address?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to Google's documentation or another reliable source.
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Suggested level
+      options:
+        - Baseline (everyone)
+        - Enhanced (higher-value accounts)
+        - Maximum (people who are targeted)
+        - Not sure

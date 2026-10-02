@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250" role="img" aria-labelledby="t d">
+<title id="t">Google Account Hardening Guide</title>
+<desc id="d">Passkeys, recovery, sessions, Gmail, Chrome, Android and privacy in one ordered plan, at three levels: Baseline, Enhanced and Maximum.</desc>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }</style>
+<rect x="0.5" y="0.5" width="999" height="249" rx="16" fill="#f6f8fa" stroke="#d1d9e0"/>
+<g transform="translate(56,46) scale(0.78)"><path d="M80 0 L160 28 V100 C160 152 126 186 80 200 C34 186 0 152 0 100 V28 Z" fill="#0969da"/><path d="M80 18 L144 40 V100 C144 142 117 170 80 182 C43 170 16 142 16 100 V40 Z" fill="none" stroke="#f6f8fa" stroke-opacity="0.35" stroke-width="3"/><circle cx="80" cy="86" r="20" fill="#f6f8fa"/><path d="M69 98 H91 L97 146 H63 Z" fill="#f6f8fa"/></g>
+<text x="220" y="104" font-size="40" font-weight="700" fill="#1f2328" text-anchor="start">Google Account Hardening Guide</text>
+<text x="221" y="142" font-size="19" font-weight="400" fill="#59636e" text-anchor="start">Passkeys, recovery, sessions, Gmail, Chrome, Android</text>
+<text x="221" y="168" font-size="19" font-weight="400" fill="#59636e" text-anchor="start">and privacy. One ordered plan, sourced and current.</text>
+<rect x="221" y="190" width="101" height="32" rx="16.0" fill="#dafbe1"/><text x="271.5" y="211.04" font-size="14" font-weight="700" fill="#1a7f37" text-anchor="middle">Baseline</text>
+<rect x="332" y="190" width="101" height="32" rx="16.0" fill="#fff8c5"/><text x="382.5" y="211.04" font-size="14" font-weight="700" fill="#9a6700" text-anchor="middle">Enhanced</text>
+<rect x="443" y="190" width="93" height="32" rx="16.0" fill="#ffebe9"/><text x="489.5" y="211.04" font-size="14" font-weight="700" fill="#cf222e" text-anchor="middle">Maximum</text>
+</svg>
