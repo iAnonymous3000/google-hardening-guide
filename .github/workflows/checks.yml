@@ -36,10 +36,17 @@ jobs:
           print("No long dashes found.")
           PY
 
+      - name: Install Pillow and DejaVu fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pil fonts-dejavu-core
+
       - name: Visuals match their source
         run: |
-          python3 scripts/build_visuals.py
+          python3 scripts/build_visuals.py --check
+          git status --short -- assets/
           git diff --exit-code -- assets/
+          test -z "$(git status --porcelain -- assets/)"
 
   links:
     name: Links

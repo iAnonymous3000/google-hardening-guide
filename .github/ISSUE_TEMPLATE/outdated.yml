@@ -12,7 +12,7 @@ body:
     attributes:
       label: Section
       description: The heading or a link to the part of the guide.
-      placeholder: "4. Gmail > Audit the settings attackers change"
+      placeholder: "Gmail settings attackers change"
     validations:
       required: true
   - type: textarea

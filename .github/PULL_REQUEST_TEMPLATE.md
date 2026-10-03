@@ -12,5 +12,5 @@
 - [ ] Settings links open the exact page (tested while signed in)
 - [ ] Level tags (Baseline, Enhanced, Maximum) still fit
 - [ ] No em or en dashes
-- [ ] If visuals changed, I edited `scripts/build_visuals.py` and ran it
+- [ ] If visuals changed, I edited `scripts/build_visuals.py` and ran it with `--check`
 - [ ] `CHANGELOG.md` has a line for this change

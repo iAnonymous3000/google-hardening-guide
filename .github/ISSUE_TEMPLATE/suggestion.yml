@@ -3,6 +3,10 @@ description: A setting, threat or tip the guide should cover.
 title: "[Suggestion]: "
 labels: ["enhancement"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include email addresses, phone numbers, codes or screenshots that show personal details.
   - type: textarea
     id: what
     attributes:
@@ -28,7 +32,7 @@ body:
     attributes:
       label: Suggested level
       options:
-        - Baseline (everyone)
-        - Enhanced (higher-value accounts)
-        - Maximum (people who are targeted)
+        - Baseline (everyone, free)
+        - Enhanced (more effort or a purchase)
+        - Maximum (trades convenience for safety)
         - Not sure

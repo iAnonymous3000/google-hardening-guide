@@ -14,6 +14,7 @@ House style: no em or en dashes in any visible text.
 
 from __future__ import annotations
 
+import os
 import pathlib
 import sys
 from xml.sax.saxutils import escape
@@ -37,8 +38,6 @@ THEMES = {
         "red": "#cf222e",
         "red_bg": "#ffebe9",
         "blue": "#0969da",
-        "blue_bg": "#ddf4ff",
-        "track": "#e6eaef",
     },
     "dark": {
         "card": "#151b23",
@@ -53,8 +52,6 @@ THEMES = {
         "red": "#f85149",
         "red_bg": "#301517",
         "blue": "#4493f8",
-        "blue_bg": "#0f2440",
-        "track": "#262c36",
     },
 }
 
@@ -134,163 +131,127 @@ def banner(t):
     )
 
 
-# ---------------------------------------------------------- attack doors
+# ------------------------------------------------------- text measurement
 
-DOORS = [
-    ("Sign-in page",
-     ["Phishing kits relay your", "password, codes and prompts", "in real time"],
-     ["Passkeys and security keys"]),
-    ("Your devices",
-     ["Infostealer malware copies", "your session cookies and", "saved passwords"],
-     ["Clean devices and signing", "out old sessions"]),
-    ("Phone number",
-     ["SIM swaps move your number", "to a criminal, along with", "your text codes"],
-     ["Carrier lock, no text codes"]),
-    ("Recovery",
-     ["A hijacked recovery email", "or phone resets your", "whole account"],
-     ["Strong recovery email and", "recovery contacts"]),
-    ("Linked apps",
-     ["Consent phishing plants an", "app token that outlives", "your password"],
-     ["Review linked apps, read", "every consent screen"]),
-    ("You",
-     ["Fake Google Support calls", "ask you to read a code or", "approve a prompt"],
-     ["Google never calls. Hang up."]),
-]
-
-
-def door_icon(cx, cy, t):
-    # A simple door with a knob, inside a tinted circle.
-    return (
-        f'<circle cx="{cx}" cy="{cy}" r="17" fill="{t["blue_bg"]}"/>'
-        f'<rect x="{cx - 7}" y="{cy - 10}" width="14" height="20" rx="2" fill="none" stroke="{t["blue"]}" stroke-width="2"/>'
-        f'<circle cx="{cx + 3}" cy="{cy + 1}" r="1.8" fill="{t["blue"]}"/>'
-    )
+# Advance widths of printable ASCII (space to tilde) in DejaVu Sans and
+# DejaVu Sans Bold, per 1000 units of font size. Layout measures with these
+# tables so the SVGs come out the same on every machine. DejaVu is wider than
+# the fonts GitHub renders with, so text measured to fit here fits there.
+WIDTHS = {
+    False: [
+        318, 401, 460, 838, 636, 950, 780, 275, 390, 390, 500, 838, 318, 361, 318, 337,
+        636, 636, 636, 636, 636, 636, 636, 636, 636, 636, 337, 337, 838, 838, 838, 531,
+        1000, 684, 686, 698, 770, 632, 575, 775, 752, 295, 295, 656, 557, 863, 748, 787,
+        603, 787, 695, 635, 611, 732, 684, 989, 685, 611, 685, 390, 337, 390, 838, 500,
+        500, 613, 635, 550, 635, 615, 352, 635, 634, 278, 278, 579, 278, 974, 634, 612,
+        635, 635, 411, 521, 392, 634, 592, 818, 592, 592, 525, 636, 337, 636, 838,
+    ],
+    True: [
+        348, 456, 521, 838, 696, 1002, 872, 306, 457, 457, 523, 838, 380, 415, 380, 365,
+        696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 400, 400, 838, 838, 838, 580,
+        1000, 774, 762, 734, 830, 683, 683, 821, 837, 372, 372, 775, 637, 995, 837, 850,
+        733, 850, 770, 720, 682, 812, 774, 1103, 771, 724, 725, 457, 365, 457, 838, 500,
+        500, 675, 716, 593, 716, 678, 435, 716, 712, 343, 343, 665, 343, 1042, 712, 687,
+        716, 716, 493, 595, 478, 712, 652, 924, 645, 652, 582, 712, 365, 712, 838,
+    ],
+}
 
 
-def attack_surface(t):
-    w, h = 1000, 640
-    b = [
-        text(32, 54, "Six doors into your Google account", 27, t["text"], 700, max_width=900),
-        text(32, 84, "Every control in this guide locks one of these doors.", 16, t["muted"], max_width=900),
-    ]
-    cw, ch, gap = 302, 242, 15
-    xs = [32, 32 + cw + gap, 32 + 2 * (cw + gap)]
-    ys = [112, 112 + ch + 14]
-    for i, (name, attack, lock) in enumerate(DOORS):
-        x, y = xs[i % 3], ys[i // 3]
-        b.append(f'<rect x="{x}" y="{y}" width="{cw}" height="{ch}" rx="12" fill="{t["surface"]}" stroke="{t["border"]}"/>')
-        b.append(door_icon(x + 36, y + 36, t))
-        b.append(text(x + 64, y + 43, name, 19, t["text"], 700, max_width=cw - 80))
-        b.append(text(x + 22, y + 82, "ATTACK", 11.5, t["red"], 700, spacing=1.2))
-        for j, line in enumerate(attack):
-            b.append(text(x + 22, y + 106 + j * 21, line, 15.5, t["text"], max_width=cw - 40))
-        ly = y + 106 + len(attack) * 21 + 14
-        b.append(text(x + 22, ly, "LOCK", 11.5, t["green"], 700, spacing=1.2))
-        for j, line in enumerate(lock):
-            b.append(text(x + 22, ly + 24 + j * 21, line, 15.5, t["text"], 700, max_width=cw - 40))
-    desc = " ".join(
-        f"{n}: {' '.join(a)}. Lock: {' '.join(l)}." for n, a, l in DOORS
-    )
-    return doc(w, h, "Six doors into your Google account", desc, "\n".join(b), t)
+def measure(s, size, bold=False):
+    """Width of s in px, with 2 percent to spare for kerning differences."""
+    return sum(WIDTHS[bold][ord(c) - 32] for c in s) * size / 1000 * 1.02
+
+
+def wrap(s, size, bold, max_w):
+    """Split s into lines no wider than max_w."""
+    lines, line = [], ""
+    for word in s.split():
+        trial = f"{line} {word}".strip()
+        if line and measure(trial, size, bold) > max_w:
+            lines.append(line)
+            line = word
+        else:
+            line = trial
+    return lines + [line]
 
 
 # ------------------------------------------------------- sign-in strength
 
+# Tiers, not scores: sources rank these methods by tier only, not by distance.
+# (name, why, color, tag); the relay line goes after the first row.
 METHODS = [
-    ("Hardware security key", "Phishing-proof. The secret never leaves the key.", 1.00, "green", "Phishing-resistant"),
-    ("Passkey", "Phishing-proof. Synced end-to-end encrypted.", 0.90, "green", "Phishing-resistant"),
-    ("Google prompt", "Shows where a sign-in comes from, but relayable.", 0.55, "amber", "Phishable"),
-    ("Authenticator app code", "Immune to SIM swaps. Relayed by phishing kits.", 0.45, "amber", "Phishable"),
-    ("Text or voice code", "Hit by SIM swaps and relayed by phishing kits.", 0.22, "red", "Weak"),
-    ("Password alone", "Phished, leaked and reused. Never enough.", 0.10, "red", "Weak"),
+    ("Passkey or security key", "Works only on Google's real site.", "green", "Phishing-resistant"),
+    ("Google prompt or authenticator code", "A fake page passes them on as you approve or type.", "amber", "Phishable"),
+    ("Text or voice code", "Relayed by fake pages and caught by SIM swaps.", "red", "Weak"),
+    ("Password alone", "Phished, leaked and reused.", "red", "Weak"),
 ]
+SIGN_IN_TITLE = "Which sign-in methods resist phishing"
+SIGN_IN_SUBTITLE = "Which methods a fake sign-in page can relay"
+RELAY_LABEL = "Everything below this line can be relayed by a fake sign-in page"
+SIGN_IN_FOOTER = "No sign-in method stops malware that steals your signed-in session."
+SIGN_IN_ALT = (
+    "Sign-in methods by phishing resistance. Passkeys and security keys resist phishing. "
+    "Below a line marking what a fake sign-in page can relay: Google prompts and "
+    "authenticator codes are phishable; text or voice codes and a password alone are weak. "
+    "No method stops malware that steals a signed-in session."
+)
 
 
 def sign_in_strength(t):
-    w, h = 1000, 664
-    b = [
-        text(32, 54, "Phishing resistance by sign-in method", 27, t["text"], 700, max_width=900),
-        text(32, 84, "How each method holds up against phishing kits, SIM swaps and malware.", 16, t["muted"], max_width=920),
-    ]
-    y, row_h, gap = 108, 70, 10
-    for i, (name, desc, score, c, tag) in enumerate(METHODS):
-        if i == 2:
-            line_y = y + 14
-            b.append(f'<line x1="32" y1="{line_y}" x2="968" y2="{line_y}" stroke="{t["red"]}" stroke-width="1.5" stroke-dasharray="6 6"/>')
-            label = "Everything below this line can be relayed by a fake website"
-            lw = 466  # label measured at 437px in a wide fallback font, plus padding
-            b.append(f'<rect x="{500 - lw / 2}" y="{line_y - 13}" width="{lw}" height="26" rx="13" fill="{t["card"]}"/>')
-            b.append(text(500, line_y + 4.5, label, 13, t["red"], 700, "middle", max_width=lw - 12))
-            y += 30
-        b.append(f'<rect x="32" y="{y}" width="936" height="{row_h}" rx="12" fill="{t["surface"]}" stroke="{t["border"]}"/>')
-        b.append(f'<circle cx="66" cy="{y + row_h / 2}" r="16" fill="{t[c + "_bg"]}"/>')
-        b.append(text(66, y + row_h / 2 + 5.5, str(i + 1), 15, t[c], 700, "middle"))
-        b.append(text(96, y + 30, name, 18, t["text"], 700, max_width=420))
-        b.append(text(96, y + 53, desc, 14.5, t["muted"], max_width=430))
-        bx, bw = 548, 220
-        b.append(f'<rect x="{bx}" y="{y + 27}" width="{bw}" height="16" rx="8" fill="{t["track"]}"/>')
-        b.append(f'<rect x="{bx}" y="{y + 27}" width="{max(16, bw * score):.0f}" height="16" rx="8" fill="{t[c]}"/>')
-        pw = 166
-        px = 968 - 18 - pw
-        b.append(f'<rect x="{px}" y="{y + 20}" width="{pw}" height="30" rx="15" fill="{t[c + "_bg"]}"/>')
-        b.append(text(px + pw / 2, y + 40, tag, 13, t[c], 700, "middle", max_width=pw - 14))
-        y += row_h + gap
-    b.append(text(500, y + 26, "Your account is only as strong as the weakest method it still accepts.", 16, t["text"], 700, "middle", max_width=900))
-    desc = "Sign-in methods ranked strongest to weakest. " + " ".join(
-        f"{i + 1}. {n} ({tag}): {d}" for i, (n, d, _, _, tag) in enumerate(METHODS)
-    )
-    return doc(w, h, "Phishing resistance by sign-in method", desc, "\n".join(b), t)
-
-
-# ----------------------------------------------------------------- levels
-
-LEVELS = [
-    ("LEVEL 1", "Baseline", "green", ["Everyone.", "About 20 minutes, free."],
-     ["Passkeys on every device", "2-Step Verification on", "Backup codes offline",
-      "Recovery info and contacts", "Devices and apps reviewed", "Gmail forwarding checked",
-      "Carrier SIM lock on"]),
-    ("LEVEL 2", "Enhanced", "amber", ["Money, crypto, a business,", "an audience or admin access."],
-     ["Two hardware security keys", "No text message codes", "Saved passwords encrypted",
-      "Recovery email hardened", "Calendar invite filter on", "Third-party cookies off",
-      "3-month auto-delete"]),
-    ("LEVEL 3", "Maximum", "red", ["Journalists, activists,", "executives, anyone targeted."],
-     ["Advanced Protection on", "Phone lockdown mode on", "No apps with mail access",
-      "Separate accounts per role", "Dedicated admin device", "Gemini unlinked from apps",
-      "Backup key stored off-site"]),
-]
-
-
-def check_icon(cx, cy, c, bg):
-    return (
-        f'<circle cx="{cx}" cy="{cy}" r="10" fill="{bg}"/>'
-        f'<path d="M{cx - 4.5} {cy + 0.5} L{cx - 1.2} {cy + 3.8} L{cx + 4.8} {cy - 3.2}" '
-        f'fill="none" stroke="{c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
-    )
-
-
-def levels(t):
-    w, h = 1000, 584
-    b = [
-        text(32, 54, "Three levels of hardening", 27, t["text"], 700, max_width=900),
-        text(32, 84, "Each level includes everything before it. Go as far as your risk requires.", 16, t["muted"], max_width=920),
-    ]
-    cw, gap = 302, 15
-    for i, (tag, name, c, who, items) in enumerate(LEVELS):
-        x, y = 32 + i * (cw + gap), 108
-        ch = 446
-        b.append(f'<rect x="{x}" y="{y}" width="{cw}" height="{ch}" rx="12" fill="{t["surface"]}" stroke="{t["border"]}"/>')
-        b.append(f'<path d="M{x + 12} {y + 0.5} H{x + cw - 12} A11.5 11.5 0 0 1 {x + cw - 0.5} {y + 12} V{y + 6} H{x + 0.5} V{y + 12} A11.5 11.5 0 0 1 {x + 12} {y + 0.5} Z" fill="{t[c]}"/>')
-        b.append(text(x + 24, y + 42, tag, 12, t[c], 700, spacing=1.5))
-        b.append(text(x + 24, y + 76, name, 27, t["text"], 700, max_width=cw - 48))
-        for j, line in enumerate(who):
-            b.append(text(x + 24, y + 104 + j * 20, line, 15, t["muted"], max_width=cw - 44))
-        b.append(f'<line x1="{x + 24}" y1="{y + 142}" x2="{x + cw - 24}" y2="{y + 142}" stroke="{t["border"]}"/>')
-        for j, item in enumerate(items):
-            iy = y + 178 + j * 40
-            b.append(check_icon(x + 34, iy - 5, t[c], t[c + "_bg"]))
-            b.append(text(x + 54, iy, item, 15.5, t["text"], max_width=cw - 70))
-    desc = " ".join(f"{name} ({' '.join(who)}): {', '.join(items)}." for _, name, _, who, items in LEVELS)
-    return doc(w, h, "Three levels of hardening", desc, "\n".join(b), t)
+    # GitHub shows this at about 343 px wide on a phone. With w = 680 the
+    # smallest text (22 px) still renders at 11 px there.
+    w, m = 680, 16                        # canvas width, outer margin
+    title, body, name_px, tag_px = 28, 22, 24, 22
+    cx0, cw = m, w - 2 * m                # card left edge and width
+    tx, tr = cx0 + 28, cx0 + cw - 20      # card text left and right edges
+    b = []
+    y = 52
+    for line in wrap(SIGN_IN_TITLE, title, True, w - 2 * 24):
+        b.append(text(24, round(y, 1), line, title, t["text"], 700, max_width=w - 2 * 24))
+        y += title * 1.25
+    y += 2
+    for line in wrap(SIGN_IN_SUBTITLE, body, False, w - 2 * 24):
+        b.append(text(24, round(y, 1), line, body, t["muted"], max_width=w - 2 * 24))
+        y += body * 1.35
+    y += 8
+    for i, (name, why, c, tag) in enumerate(METHODS):
+        if i == 1:
+            y += 10
+            lines = wrap(RELAY_LABEL, body, True, cw - 120)
+            lw = max(measure(s, body, True) for s in lines) + 32
+            lh = len(lines) * body * 1.3 + 18
+            mid = y + lh / 2
+            b.append(f'<line x1="{cx0}" y1="{mid:.1f}" x2="{cx0 + cw}" y2="{mid:.1f}" stroke="{t["red"]}" '
+                     f'stroke-width="2" stroke-dasharray="7 7"/>')
+            b.append(f'<rect x="{w / 2 - lw / 2:.1f}" y="{y:.1f}" width="{lw:.1f}" height="{lh:.1f}" rx="12" '
+                     f'fill="{t["card"]}" stroke="{t["red"]}" stroke-width="1.5"/>')
+            for j, s in enumerate(lines):
+                b.append(text(w / 2, round(y + 9 + body * (1.0 + j * 1.3), 1), s, body, t["red"], 700, "middle", max_width=lw - 16))
+            y += lh + 20
+        pw = measure(tag, tag_px, True) + 26
+        names = wrap(name, name_px, True, tr - tx - pw - 12)
+        whys = wrap(why, body, False, tr - tx)
+        h = 24 + len(names) * name_px * 1.25 + 8 + len(whys) * body * 1.35 + 14
+        b.append(f'<rect x="{cx0 + 0.5}" y="{y:.1f}" width="{cw - 1}" height="{h:.1f}" rx="12" '
+                 f'fill="{t["surface"]}" stroke="{t["border"]}"/>')
+        b.append(f'<rect x="{cx0 + 10}" y="{y + 14:.1f}" width="6" height="{h - 28:.1f}" rx="3" fill="{t[c]}"/>')
+        ly = y + 20 + name_px
+        b.append(f'<rect x="{tr - pw:.1f}" y="{ly - name_px * 0.35 - 18:.1f}" width="{pw:.1f}" height="36" rx="18" fill="{t[c + "_bg"]}"/>')
+        b.append(text(round(tr - pw / 2, 1), round(ly - name_px * 0.35 + tag_px * 0.36, 1), tag, tag_px, t[c], 700, "middle", max_width=pw - 12))
+        for s in names:
+            b.append(text(tx, round(ly, 1), s, name_px, t["text"], 700, max_width=tr - tx - pw - 12))
+            ly += name_px * 1.25
+        ly += 8 - name_px * 1.25 + body * 1.35
+        for s in whys:
+            b.append(text(tx, round(ly, 1), s, body, t["muted"], max_width=tr - tx))
+            ly += body * 1.35
+        y += h + 12
+    y += 28
+    for line in wrap(SIGN_IN_FOOTER, body, True, w - 2 * 24):
+        b.append(text(w / 2, round(y, 1), line, body, t["text"], 700, "middle", max_width=w - 2 * 24))
+        y += body * 1.35
+    h = round(y + 14)
+    return doc(w, h, SIGN_IN_TITLE, SIGN_IN_ALT, "\n".join(b), t)
 
 
 # --------------------------------------------------------- social preview
@@ -319,18 +280,24 @@ def social_preview(t):
 
 VISUALS = {
     "banner": banner,
-    "attack-surface": attack_surface,
     "sign-in-strength": sign_in_strength,
-    "levels": levels,
 }
+
+
+def skip(reason) -> int:
+    """Skip the text-fit check locally, but fail in CI so it cannot pass silently."""
+    if os.environ.get("CI"):
+        print(f"{reason}; the text-fit check cannot run in CI.")
+        return 1
+    print(f"{reason}; skipping text-fit check.")
+    return 0
 
 
 def check_fit() -> int:
     try:
         from PIL import ImageFont
     except ImportError:
-        print("Pillow not installed; skipping text-fit check.")
-        return 0
+        return skip("Pillow not installed")
     candidates = {
         False: ["DejaVuSans.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "Arial.ttf"],
         True: ["DejaVuSans-Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "Arial Bold.ttf"],
@@ -345,8 +312,7 @@ def check_fit() -> int:
             except OSError:
                 fonts.pop(bold, None)
     if len(fonts) < 2:
-        print("No wide reference font found; skipping text-fit check.")
-        return 0
+        return skip("No wide reference font found")
     bad = 0
     for s, size, bold, max_w in FIT:
         f = ImageFont.truetype(fonts[bold], round(size * 4))

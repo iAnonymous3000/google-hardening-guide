@@ -9,10 +9,18 @@ user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Ge
 # block automated clients, so treat rate limits and bot blocks as reachable.
 accept = ["200..=299", "403", "429"]
 
-# gemini.google.com breaks some HTTP/2 clients even though the pages load fine.
+# Check that #anchors exist, in our Markdown and in fetched HTML pages.
+# An external link whose #anchor is not in the page's HTML fails.
+include_fragments = "anchor-only"
+
 exclude = [
+  # Browser pages, not web addresses.
   '^chrome://',
+  # Breaks some HTTP/2 clients even though the pages load fine.
   '^https://gemini\.google\.com/',
+  # Gmail settings links need a signed in browser, so test them by hand.
+  '^https://mail\.google\.com/',
   '^https://x\.com/',
+  # Redirects to GitHub sign-in.
   '^https://github\.com/iAnonymous3000/google-hardening-guide/issues/new',
 ]
